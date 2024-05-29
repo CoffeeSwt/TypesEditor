@@ -1,7 +1,9 @@
 import { ElectronAPI } from '@electron-toolkit/preload'
 
-interface CustomAPIs {
-  createName: () => void
+export interface CustomAPIs {
+  openFile: () => void
+  setStoreValue: (key: string, value: string | number) => void
+  getStoreValue: (key: string) => number
 }
 
 declare global {

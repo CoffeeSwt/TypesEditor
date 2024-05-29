@@ -1,17 +1,12 @@
 <template>
-  <div class="main-window" h-screen bg-blue @click="ipcSend">111</div>
+  <router-view></router-view>
 </template>
 
 <script setup lang="ts">
-import { ipcRenderer } from '@renderer/utils/ipcSender'
-const ipcSend = () => {
-  ipcRenderer.invoke('dialog:openFile')
-}
-
+import { useThemeStore } from '@renderer/store/theme';
+const themeStore = useThemeStore()
+themeStore.initTheme()
+// themeStore.setTheme('dark')
 </script>
 
-<style>
-.main-window {
-  -webkit-app-region: drag;
-}
-</style>
+<style></style>

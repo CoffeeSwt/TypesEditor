@@ -4,12 +4,13 @@ import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 import { ipcController } from './ipc/events'
 
+
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     // width: 900,
     // height: 670,
-    useContentSize:true,
+    useContentSize: true,
     // show: false,
     // autoHideMenuBar: true,
     frame: false,
@@ -55,10 +56,12 @@ app.whenReady().then(() => {
     optimizer.watchWindowShortcuts(window)
   })
 
-  // IPC test
+  // IPC registe
   ipcController.registeIpcEvents(ipcMain)
-
   createWindow()
+
+
+  
 
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
