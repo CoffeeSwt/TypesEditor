@@ -7,12 +7,15 @@ import { ipcController } from './ipc/events'
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 900,
-    height: 670,
-    show: false,
-    autoHideMenuBar: true,
+    // width: 900,
+    // height: 670,
+    useContentSize:true,
+    // show: false,
+    // autoHideMenuBar: true,
     frame: false,
-    resizable: false,
+    resizable: true,
+    // titleBarStyle: 'hidden',
+    // transparent: true,
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),

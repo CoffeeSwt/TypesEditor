@@ -1,5 +1,5 @@
 <template>
-  <div h-10 w-10 bg-black flex @click="ipcSend">111</div>
+  <div class="main-window" h-screen bg-blue @click="ipcSend">111</div>
 </template>
 
 <script setup lang="ts">
@@ -9,3 +9,9 @@ const ipcSend = () => {
 }
 
 </script>
+
+<style>
+.main-window {
+  -webkit-app-region: drag;
+}
+</style>
