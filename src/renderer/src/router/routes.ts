@@ -4,7 +4,7 @@ export const routes: Array<RouteRecordRaw> = [
     { path: '/', redirect: '/home' },
 
     {
-        name: 'home',
+        name: '文件编辑',
         path: '/home',
         component: () => import('@renderer/pages/Home.vue')
     }

@@ -19,7 +19,7 @@ export default defineConfig({
   ],
   shortcuts: [
     ['flex-center', 'flex justify-center items-center'],
-    ['header-button', 'size-6 no-drag-area cursor-pointer']
+    ['header-button', 'size-6 no-drag-area cursor-pointer'],
   ],
   theme: {
     colors: {
@@ -34,10 +34,12 @@ export default defineConfig({
       'base-light': '#ffffff',
       'base-light-text': '#3c3c43',
 
-      'base-gray-normal':'#66666633',
+      'base-gray-normal': '#66666633',
+      'base-gray-light': '#E2E2E2',
 
 
       'aside-dark': '#1a1a21',
+      'aside-light': '#f2f3f5',
     }
   },
   presets: [
