@@ -1,4 +1,4 @@
-import { IpcMain } from 'electron'
+import { BrowserWindow, IpcMain } from 'electron'
 
 interface IpcEvnet {
     name: string,
@@ -8,9 +8,17 @@ interface IpcEvnet {
 export class IpcController {
     onEvents: IpcEvnet[]
     handleEvents: IpcEvnet[]
+    mainWindow: BrowserWindow | null
     constructor() {
         this.onEvents = []
         this.handleEvents = []
+        this.mainWindow = null
+    }
+    setMainWindeow = (mainWindow: BrowserWindow) => {
+        this.mainWindow = mainWindow
+    }
+    getMainWindow = () => {
+        return this.mainWindow
     }
     registeIpcOnEvents(ipcMain: IpcMain): void {
         this.onEvents.forEach((event) => {

@@ -4,16 +4,16 @@ import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 import { ipcController } from './ipc/events'
 
-function createWindow(): void {
+function createWindow(): BrowserWindow {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    // width: 900,
-    // height: 670,
+    width: 1060,
+    height: 750,
     useContentSize: true,
     // show: false,
     // autoHideMenuBar: true,
     frame: false,
-    resizable: true,
+    resizable: false,
     // titleBarStyle: 'hidden',
     // transparent: true,
     ...(process.platform === 'linux' ? { icon } : {}),
@@ -39,6 +39,8 @@ function createWindow(): void {
   } else {
     mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
   }
+
+  return mainWindow
 }
 
 // This method will be called when Electron has finished
@@ -57,7 +59,7 @@ app.whenReady().then(() => {
 
   // IPC registe
   ipcController.registeIpcEvents(ipcMain)
-  createWindow()
+  ipcController.setMainWindeow(createWindow())
 
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the

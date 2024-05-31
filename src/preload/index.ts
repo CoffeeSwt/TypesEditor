@@ -5,6 +5,10 @@ import { electronAPI } from '@electron-toolkit/preload'
 const api = {
   ping: () => ipcRenderer.send('ping'),
   openFile: () => ipcRenderer.invoke('dialog:openFile'),
+  minimize: () => ipcRenderer.send('minimize'),
+  maximize: () => ipcRenderer.send('maximize'),
+  restore: () => ipcRenderer.send('restore'),
+  close: () => ipcRenderer.send('close'),
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to
