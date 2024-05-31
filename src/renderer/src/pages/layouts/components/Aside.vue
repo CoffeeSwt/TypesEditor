@@ -3,7 +3,9 @@
         <div h-18 flex-center text-2xl font-600>
             DayZ
         </div>
-
+        <div px-4>
+            <div></div>
+        </div>
     </div>
 </template>
 

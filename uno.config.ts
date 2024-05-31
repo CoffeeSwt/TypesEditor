@@ -34,6 +34,8 @@ export default defineConfig({
       'base-light': '#ffffff',
       'base-light-text': '#3c3c43',
 
+      'base-gray-normal':'#66666633',
+
 
       'aside-dark': '#1a1a21',
     }

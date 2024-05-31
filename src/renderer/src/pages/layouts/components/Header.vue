@@ -10,6 +10,8 @@
             </div>
         </Button>
 
+        <div w-0.25 h-4 bg-base-gray-normal mx-2></div>
+
         <Button tooltip="最小化" size-6 @click="windowStore.minimize">
             <div size-full i-mingcute-minimize-fill></div>
         </Button>
