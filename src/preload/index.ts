@@ -3,16 +3,8 @@ import { electronAPI } from '@electron-toolkit/preload'
 
 // Custom APIs for renderer
 const api = {
-
+  ping: () => ipcRenderer.send('ping'),
   openFile: () => ipcRenderer.invoke('dialog:openFile'),
-  setStoreValue: (key: string, value: any) => {
-    ipcRenderer.send("setStore", key, value)
-  },
-  getStoreValue(key: string) {
-    const resp = ipcRenderer.sendSync("getStore", key)
-    return resp
-  }
-
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to

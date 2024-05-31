@@ -1,9 +1,8 @@
 import { ElectronAPI } from '@electron-toolkit/preload'
 
 export interface CustomAPIs {
+  ping: () => void
   openFile: () => void
-  setStoreValue: (key: string, value: string | number) => void
-  getStoreValue: (key: string) => number
 }
 
 declare global {

@@ -27,7 +27,6 @@ export class IpcController {
         this.registeIpcHandleEvents(ipcMain)
     }
 
-
     addOn(name: string, handler: () => unknown) {
         this.onEvents.push({ name, handler })
     }

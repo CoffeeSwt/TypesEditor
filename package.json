@@ -23,7 +23,6 @@
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.0",
     "@electron-toolkit/utils": "^3.0.0",
-    "electron-store": "^9.0.0",
     "electron-updater": "^6.1.7",
     "pinia": "^2.1.7",
     "vue-router": "^4.3.2"
@@ -33,7 +32,6 @@
     "@electron-toolkit/eslint-config-ts": "^1.0.1",
     "@electron-toolkit/tsconfig": "^1.0.1",
     "@rushstack/eslint-patch": "^1.7.1",
-    "@types/electron-store": "^3.2.0",
     "@types/node": "^18.19.9",
     "@vitejs/plugin-vue": "^5.0.3",
     "@vue/eslint-config-prettier": "^9.0.0",

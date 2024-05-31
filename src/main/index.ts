@@ -4,7 +4,6 @@ import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 import { ipcController } from './ipc/events'
 
-
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
@@ -59,9 +58,6 @@ app.whenReady().then(() => {
   // IPC registe
   ipcController.registeIpcEvents(ipcMain)
   createWindow()
-
-
-  
 
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the

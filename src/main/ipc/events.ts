@@ -1,10 +1,6 @@
 import { dialog } from 'electron'
 import { IpcController } from "./index";
 
-import('electron-store').then((Store: any) => {
-    console.log(Store)
-})
-
 
 export const ipcController = new IpcController()
 
@@ -23,26 +19,6 @@ const pingHandler = () => {
 }
 ipcController.addOn('ping', pingHandler)
 
-const init = async () => {
-    const store = await import('electron-store')
-    const setStoreHandler = () => {
-        (_: any, key: any, value: any) => {
-            //@ts-ignore
-            store.set(key, value)
-        }
-    }
-    ipcController.addOn('setStore', setStoreHandler)
-
-    const getStoreHandler = () => {
-        (_: { returnValue: any; }, key: any) => {
-            //@ts-ignore
-            let value = store.get(key)
-            _.returnValue = value || ""
-        }
-    }
-    ipcController.addOn('getStore', getStoreHandler)
-}
-init()
 
 
 

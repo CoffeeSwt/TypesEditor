@@ -3,15 +3,14 @@
         <button @click="themeStore.setTheme('light')">set light</button>
         <button @click="themeStore.setTheme('dark')">set dark</button>
     </div>
-
 </template>
 
 <script lang="ts" setup>
 import { useThemeStore } from '@renderer/store/theme';
-import { ipcRenderer } from '@renderer/utils/ipcApi';
+import { api } from '@renderer/utils/ipcApi';
+import { onMounted } from 'vue';
 const themeStore = useThemeStore()
-ipcRenderer.
-
-console.log('hello')
-
+onMounted(() => {
+    api.ping()
+})
 </script>
