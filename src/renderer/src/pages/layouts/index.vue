@@ -1,12 +1,11 @@
 <template>
-    <div flex h-screen>
+    <div flex h-screen bg-base-light dark:bg-base-dark text-base-light-text dark:text-base-dark-text>
         <Aside></Aside>
         <div h-full flex flex-col flex-grow-1>
             <Header flex-shrink-0></Header>
             <div flex-grow-1>
                 <slot></slot>
             </div>
-            <Footer flex-shrink-0></Footer>
         </div>
     </div>
 
@@ -15,5 +14,4 @@
 <script lang="ts" setup>
 import Aside from './components/Aside.vue'
 import Header from './components/Header.vue'
-import Footer from './components/Footer.vue'
 </script>

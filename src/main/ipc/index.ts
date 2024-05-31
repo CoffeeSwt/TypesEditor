@@ -14,7 +14,7 @@ export class IpcController {
         this.handleEvents = []
         this.mainWindow = null
     }
-    setMainWindeow = (mainWindow: BrowserWindow) => {
+    bindMainWindeow = (mainWindow: BrowserWindow) => {
         this.mainWindow = mainWindow
     }
     getMainWindow = () => {

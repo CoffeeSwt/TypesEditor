@@ -1,5 +1,23 @@
-@import './base.css';
+@import "./base.css";
 
 body {
-  margin:0;
+  margin: 0;
+}
+
+@keyframes clip {
+  from {
+    clip-path: circle(0% at var(--x) var(--y));
+  }
+  to {
+    clip-path: circle(100% at var(--x) var(--y));
+  }
+}
+
+::view-transition-old(root) {
+  animation: none;
+}
+::view-transition-new(root) {
+  /* mix-blend-mode: normal; */
+  animation: clip 0.15s ease-in;
+  /* animation-duration: 2s; */
 }
