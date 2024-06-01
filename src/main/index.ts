@@ -15,7 +15,7 @@ function createWindow(): BrowserWindow {
     frame: false,
     resizable: false,
     // titleBarStyle: 'hidden',
-    // transparent: true,
+    // transparent: true, //创建透明窗口
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),

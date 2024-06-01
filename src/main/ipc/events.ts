@@ -38,6 +38,7 @@ ipcController.addOn('maximize', maximizeHandler)
 const restoreHandler = () => {
     const mainWindow = ipcController.getMainWindow()
     mainWindow?.restore()
+    // mainWindow?.unmaximize()
 }
 ipcController.addOn('restore', restoreHandler)
 
