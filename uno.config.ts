@@ -20,6 +20,7 @@ export default defineConfig({
   shortcuts: [
     ['flex-center', 'flex justify-center items-center'],
     ['header-button', 'size-6 no-drag-area cursor-pointer'],
+    ['main-conetnt', 'size-full p-2 box-border'],
   ],
   theme: {
     colors: {
@@ -37,9 +38,10 @@ export default defineConfig({
       'base-gray-normal': '#66666633',
       'base-gray-light': '#E2E2E2',
 
-
       'aside-dark': '#1a1a21',
       'aside-light': '#f2f3f5',
+
+      'active-blue': '#4f46e5'
     }
   },
   presets: [

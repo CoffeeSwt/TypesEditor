@@ -7,5 +7,10 @@ export const routes: Array<RouteRecordRaw> = [
         name: '文件编辑',
         path: '/home',
         component: () => import('@renderer/pages/Home.vue')
+    },
+    {
+        name: '合成表查询',
+        path: '/craft',
+        component: () => import('@renderer/pages/Craft.vue')
     }
 ]

@@ -1,7 +1,7 @@
 <template>
     <MainWrapper>
         <div main-conetnt>
-            Home
+            Craft
         </div>
     </MainWrapper>
 </template>
