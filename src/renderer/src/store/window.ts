@@ -5,6 +5,11 @@ import { api } from '@renderer/utils/ipcApi'
 
 const useWindowStore = defineStore('window', () => {
     const isMaximized = ref(false)
+    const shrinkSide = ref(false)
+
+    const changShrinkSide = () => {
+        shrinkSide.value = !shrinkSide.value
+    }
 
     const minimize = () => {
         api.minimize()
@@ -24,7 +29,7 @@ const useWindowStore = defineStore('window', () => {
         api.close()
     }
 
-    return { isMaximized, minimize, maximize, restore, close }
+    return { isMaximized, minimize, maximize, restore, close, shrinkSide, changShrinkSide }
 })
 
 export { useWindowStore } 
