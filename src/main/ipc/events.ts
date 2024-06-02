@@ -29,11 +29,6 @@ const getConfigHandler = () => {
 ipcController.addOn('getConfig', getConfigHandler)
 
 const setConfigHandler = (_event: any, configs: {}) => {
-    console.log(configs)
-    console.log(configController)
-    // Object.keys(configs).forEach(key => {
-    //     configController.config[key] = configs[key]
-    // })
     Object.entries(configs).forEach((config) => {
         configController.setConfig(config[0], config[1] as string)
     })
