@@ -1,9 +1,9 @@
 import { dialog } from 'electron'
-import { IpcController } from "./index";
+import { IpcController } from "./IpcController";
+import { getDataPath } from '../utils/index'
 
 
 export const ipcController = new IpcController()
-
 
 const handleFileOpen = async () => {
     const { canceled, filePaths } = await dialog.showOpenDialog({})
@@ -19,6 +19,12 @@ ipcController.addHandle('dialog:openFile', handleFileOpen)
 const pingHandler = () => {
     console.log('pong')
     // console.log(process.cwd())
+    const path = getDataPath()
+    setInterval(() => {
+        ipcController.mainWindow?.webContents.send('path', path)
+    }, 3000)
+
+
     // console.log(__dirname)
 }
 ipcController.addOn('ping', pingHandler)

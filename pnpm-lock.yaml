@@ -42,9 +42,6 @@ importers:
       '@rushstack/eslint-patch':
         specifier: ^1.7.1
         version: 1.10.3
-      '@types/node':
-        specifier: ^18.19.9
-        version: 18.19.33
       '@vitejs/plugin-vue':
         specifier: ^5.0.3
         version: 5.0.4(vite@5.2.11(@types/node@18.19.33))(vue@3.4.27(typescript@5.4.5))
@@ -1884,7 +1881,7 @@ packages:
     engines: {node: '>=0.10.0'}
 
   is-fullwidth-code-point@3.0.0:
-    resolution: {integrity: sha512-zymm5+u+sCsSWyD9qNaejV3DFvhCKclKdizYaJUuHA83RLjb7nSuGnddCHGv0hk+KY7BMAlsWeK4Ueg6EV6XQg==}
+    resolution: {integrity: sha512-zymm5+u+sCsSWyD9qNaejV3DFvhCKclKdizYaJUuHA83RLjb7nSuGnddCHGv0hk+KY7BMAlsWeK4Ueg6EV6XQg==, tarball: https://registry.npmmirror.com/is-fullwidth-code-point/-/is-fullwidth-code-point-3.0.0.tgz}
     engines: {node: '>=8'}
 
   is-glob@4.0.3:

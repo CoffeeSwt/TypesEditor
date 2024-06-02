@@ -2,7 +2,8 @@ import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
-import { ipcController } from './ipc/events'
+import { ipcController } from './ipc'
+import { getDataPath } from './utils'
 
 function createWindow(): BrowserWindow {
   // Create the browser window.
@@ -55,11 +56,14 @@ app.whenReady().then(() => {
   // see https://github.com/alex8088/electron-toolkit/tree/master/packages/utils
   app.on('browser-window-created', (_, window) => {
     optimizer.watchWindowShortcuts(window)
+
   })
 
   // IPC registe
   ipcController.registeIpcEvents(ipcMain)
-  ipcController.bindMainWindeow(createWindow())
+  const mainWindow = createWindow()
+  ipcController.bindMainWindeow(mainWindow)
+  
 
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
@@ -76,6 +80,5 @@ app.on('window-all-closed', () => {
     app.quit()
   }
 })
-
 // In this file you can include the rest of your app"s specific main process
 // code. You can also put them in separate files and require them here.

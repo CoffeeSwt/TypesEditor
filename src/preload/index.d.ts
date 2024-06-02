@@ -7,6 +7,7 @@ export interface CustomAPIs {
   maximize: () => void
   restore: () => void
   close: () => void
+  onPath: (callback: (path: string) => void) => void
 }
 
 declare global {

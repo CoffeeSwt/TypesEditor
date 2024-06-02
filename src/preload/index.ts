@@ -9,6 +9,7 @@ const api = {
   maximize: () => ipcRenderer.send('maximize'),
   restore: () => ipcRenderer.send('restore'),
   close: () => ipcRenderer.send('close'),
+  onPath: (callback: (path: string) => void) => ipcRenderer.on('path', (_event, value) => callback(value))
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to

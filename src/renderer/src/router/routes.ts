@@ -12,5 +12,10 @@ export const routes: Array<RouteRecordRaw> = [
         name: '合成表查询',
         path: '/craft',
         component: () => import('@renderer/pages/Craft.vue')
+    },
+    {
+        name: '游戏地图',
+        path: '/map',
+        component: () => import('@renderer/pages/Map.vue')
     }
 ]
