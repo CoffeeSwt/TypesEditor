@@ -8,8 +8,5 @@
 
 <script lang="ts" setup>
 import MainWrapper from '@renderer/pages/layouts/index.vue'
-import { api } from '@renderer/utils/ipcApi';
-api.onPath((path: string) => {
-    console.log(path)
-})
+
 </script>

@@ -7,7 +7,9 @@ export interface CustomAPIs {
   maximize: () => void
   restore: () => void
   close: () => void
-  onPath: (callback: (path: string) => void) => void
+  getConfig: () => void
+  onSendConfig: (callback: (event: Electron.IpcRendererEvent, config: object) => void) => Electron.IpcRenderer
+  setConfig: (config: object) => void
 }
 
 declare global {

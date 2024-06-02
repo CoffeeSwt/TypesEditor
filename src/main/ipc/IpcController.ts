@@ -29,10 +29,10 @@ export class IpcController extends EventsController {
         this.registeIpcHandleEvents(ipcMain)
     }
 
-    addOn(name: string, handler: () => unknown) {
+    addOn(name: string, handler: (...parms: any) => unknown) {
         this.onEvents.push({ name, handler })
     }
-    addHandle(name: string, handler: () => unknown) {
+    addHandle(name: string, handler: (...parms: any) => unknown) {
         this.handleEvents.push({ name, handler })
     }
 }

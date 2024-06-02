@@ -3,10 +3,11 @@
 </template>
 
 <script setup lang="ts">
-import { useThemeStore } from '@renderer/store/theme';
-const themeStore = useThemeStore()
+import { useConfigStore } from './store/config';
 import { api } from '@renderer/utils/ipcApi'
-themeStore.initTheme()
+
+const configStore = useConfigStore()
+configStore.init()
 api.ping()
 
 // themeStore.setTheme('dark')

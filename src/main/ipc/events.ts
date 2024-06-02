@@ -1,12 +1,11 @@
 import { dialog } from 'electron'
 import { IpcController } from "./IpcController";
-import { getDataPath } from '../utils/index'
 import { ConfigController } from '../utils/ConfigController';
 
 
 export const ipcController = new IpcController()
 export const configController = new ConfigController()
-configController.readConfig()
+
 const handleFileOpen = async () => {
     const { canceled, filePaths } = await dialog.showOpenDialog({})
     if (!canceled) {
@@ -20,16 +19,27 @@ ipcController.addHandle('dialog:openFile', handleFileOpen)
 
 const pingHandler = () => {
     console.log('pong')
-    // console.log(process.cwd())
-    const path = getDataPath()
-    setInterval(() => {
-        ipcController.mainWindow?.webContents.send('path', path)
-    }, 3000)
-
-
-    // console.log(__dirname)
 }
 ipcController.addOn('ping', pingHandler)
+
+const getConfigHandler = () => {
+    const config = configController.readConfig()
+    ipcController.mainWindow?.webContents.send('sendConfig', config)
+}
+ipcController.addOn('getConfig', getConfigHandler)
+
+const setConfigHandler = (_event: any, configs: {}) => {
+    console.log(configs)
+    console.log(configController)
+    // Object.keys(configs).forEach(key => {
+    //     configController.config[key] = configs[key]
+    // })
+    Object.entries(configs).forEach((config) => {
+        configController.setConfig(config[0], config[1] as string)
+    })
+    configController.writeConfig()
+}
+ipcController.addOn('setConfig', setConfigHandler)
 
 const minimizeHandler = () => {
     const mainWindow = ipcController.getMainWindow()

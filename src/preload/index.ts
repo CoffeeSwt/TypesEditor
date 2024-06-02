@@ -9,7 +9,9 @@ const api = {
   maximize: () => ipcRenderer.send('maximize'),
   restore: () => ipcRenderer.send('restore'),
   close: () => ipcRenderer.send('close'),
-  onPath: (callback: (path: string) => void) => ipcRenderer.on('path', (_event, value) => callback(value))
+  getConfig: () => ipcRenderer.send('getConfig'),
+  onSendConfig: (callback: (event: Electron.IpcRendererEvent, config: object) => void) => ipcRenderer.on('sendConfig', (_event, value) => callback(_event, value)),
+  setConfig: (config: object) => ipcRenderer.send('setConfig', config)
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to

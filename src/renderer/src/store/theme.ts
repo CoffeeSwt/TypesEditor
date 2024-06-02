@@ -1,9 +1,12 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import type { Theme } from '@renderer/types'
+import { useConfigStore } from './config'
+
 
 
 const useThemeStore = defineStore('theme', () => {
+    const configStore = useConfigStore()
     //default theme is light
     const currentTheme = ref<Theme>('light')
     const setThemeWithoutStorage = (theme: Theme, e?: MouseEvent) => {
@@ -27,13 +30,14 @@ const useThemeStore = defineStore('theme', () => {
 
     const setTheme = (theme: Theme, e?: MouseEvent) => {
         // localStorage.setItem('theme', theme)
+        configStore.setConfig('theme', theme)
         setThemeWithoutStorage(theme, e)
     }
     const getCurrentTheme = () => {
         return currentTheme.value
     }
     const initTheme = () => {
-        const localStorageTheme = 'light'
+        const localStorageTheme = configStore.getConfigByName('theme')
         if (localStorageTheme) {
             setThemeWithoutStorage(localStorageTheme)
         } else {

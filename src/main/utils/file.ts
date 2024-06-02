@@ -20,9 +20,9 @@ export const accessFileSync = (directoryPath: string, filePath: string, defaultC
         } catch (err) {
             console.error('Error creating file:', err);
         }
-        return fs.readFileSync(filePath, 'utf-8')
     } else {
-        return fs.readFileSync(filePath, 'utf-8')
+        const file = fs.readFileSync(filePath, 'utf-8')
+        return JSON.parse(file)
     }
 
 }
