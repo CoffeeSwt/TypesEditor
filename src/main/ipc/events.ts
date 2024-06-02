@@ -1,10 +1,12 @@
 import { dialog } from 'electron'
 import { IpcController } from "./IpcController";
 import { getDataPath } from '../utils/index'
+import { ConfigController } from '../utils/ConfigController';
 
 
 export const ipcController = new IpcController()
-
+export const configController = new ConfigController()
+configController.readConfig()
 const handleFileOpen = async () => {
     const { canceled, filePaths } = await dialog.showOpenDialog({})
     if (!canceled) {
