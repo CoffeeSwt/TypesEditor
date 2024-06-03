@@ -3,7 +3,6 @@ import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 import { ipcController } from './ipc'
-import { getDataPath } from './utils'
 
 function createWindow(): BrowserWindow {
   // Create the browser window.
@@ -63,7 +62,7 @@ app.whenReady().then(() => {
   ipcController.registeIpcEvents(ipcMain)
   const mainWindow = createWindow()
   ipcController.bindMainWindeow(mainWindow)
-  
+
 
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the

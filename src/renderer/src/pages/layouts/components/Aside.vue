@@ -48,6 +48,7 @@ const menuList = computed(() => {
         }
     })
 })
+
 const routeFilter = (route: RouteRecordNormalized) => {
     const path = route.path
     const filterList = ['/', '/setting']

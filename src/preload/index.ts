@@ -11,7 +11,10 @@ const api = {
   close: () => ipcRenderer.send('close'),
   getConfig: () => ipcRenderer.send('getConfig'),
   onSendConfig: (callback: (event: Electron.IpcRendererEvent, config: object) => void) => ipcRenderer.on('sendConfig', (_event, value) => callback(_event, value)),
-  setConfig: (config: object) => ipcRenderer.send('setConfig', config)
+  setConfig: (config: object) => ipcRenderer.send('setConfig', config),
+
+  getMapImg: (filePath: string) => ipcRenderer.send('getMapImg', filePath),
+  onSendImg: (callback: (event: Electron.IpcRendererEvent, img: string, filePath: string) => void) => ipcRenderer.on('sendImg', (_event, value, filePath) => callback(_event, value, filePath)),
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to

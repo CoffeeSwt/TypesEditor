@@ -1,6 +1,7 @@
 import { dialog } from 'electron'
 import { IpcController } from "./IpcController";
 import { ConfigController } from '../utils/ConfigController';
+import { accessImgSync } from '../utils/img';
 
 
 export const ipcController = new IpcController()
@@ -16,6 +17,12 @@ const handleFileOpen = async () => {
 }
 ipcController.addHandle('dialog:openFile', handleFileOpen)
 
+const getMapImgHandler = (_event: any, filePath: Array<string>) => {
+    const file = accessImgSync(filePath)
+    if (!file) return
+    ipcController.mainWindow?.webContents.send('sendImg', file, filePath)
+}
+ipcController.addOn('getMapImg', getMapImgHandler)
 
 const pingHandler = () => {
     console.log('pong')
