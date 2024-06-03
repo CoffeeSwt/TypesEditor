@@ -8,7 +8,7 @@ export const accessImgSync = (filePath: Array<string>) => {
     if (!fs.existsSync(filePathResolve)) {
         return
     } else {
-        const file = fs.readFileSync(filePathResolve, 'utf-8')
+        const file = fs.readFileSync(filePathResolve)
         return file
     }
 
