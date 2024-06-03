@@ -34,13 +34,13 @@ import { getIconByName } from '@renderer/utils/getIconName';
 import MenuItem from './Aside/MenuItem.vue'
 
 import { computed } from 'vue';
-import { useRouter } from 'vue-router';
+import { RouteRecordNormalized, useRouter } from 'vue-router';
 import { useWindowStore } from '@renderer/store/window';
 
 const windowStore = useWindowStore()
 const router = useRouter()
 const menuList = computed(() => {
-    return router.getRoutes().filter(i => i.path != '/').map(route => {
+    return router.getRoutes().filter(i => routeFilter(i)).map(route => {
         return {
             ...route,
             icon: getIconByName(route.name as string),
@@ -48,6 +48,15 @@ const menuList = computed(() => {
         }
     })
 })
+const routeFilter = (route: RouteRecordNormalized) => {
+    const path = route.path
+    const filterList = ['/', '/setting']
+    if (filterList.indexOf(path) == -1) {
+        return true
+    } else {
+        return false
+    }
+}
 
 </script>
 

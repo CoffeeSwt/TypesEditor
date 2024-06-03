@@ -1,5 +1,9 @@
 <template>
     <div h-18 flex items-center gap-2 justify-end px-8 :class="{ 'drag-area': !windowStore.isMaximized }">
+        <TooltipBox tooltip="设置" size-6 @click="navigateTo('设置')">
+            <div size-full i-solar-settings-minimalistic-linear>
+            </div>
+        </TooltipBox>
         <TooltipBox tooltip="切为夜间模式" size-6 @click="setTheme" v-show="themeStore.getCurrentTheme() == 'light'">
             <div size-full i-material-symbols-brightness-7-outline>
             </div>
@@ -35,6 +39,11 @@
 import TooltipBox from '@renderer/components/TooltipBox.vue';
 import { useThemeStore } from '@renderer/store/theme';
 import { useWindowStore } from '@renderer/store/window';
+import { useRouter } from 'vue-router';
+const router = useRouter()
+const navigateTo = (name: string) => {
+    router.push({ name })
+}
 const themeStore = useThemeStore()
 const windowStore = useWindowStore()
 const setTheme = (e: MouseEvent) => {

@@ -17,5 +17,10 @@ export const routes: Array<RouteRecordRaw> = [
         name: '游戏地图',
         path: '/map',
         component: () => import('@renderer/pages/Map.vue')
+    },
+    {
+        name: '设置',
+        path: '/setting',
+        component: () => import('@renderer/pages/Setting.vue')
     }
 ]
