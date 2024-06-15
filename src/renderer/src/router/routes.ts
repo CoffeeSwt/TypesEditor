@@ -33,6 +33,11 @@ export const routes: Array<RouteRecordRaw> = [
                 name: '服务器安装',
                 path: '/server/setup',
                 component: () => import('@renderer/pages/Server/Setup.vue')
+            },
+            {
+                name: '服务器配置',
+                path: '/server/config',
+                component: () => import('@renderer/pages/Server/Config.vue')
             }
         ]
     }
