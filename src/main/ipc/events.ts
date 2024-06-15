@@ -1,5 +1,5 @@
 import { IpcController } from "./controller/IpcController";
-import { ConfigController } from '../utils/ConfigController';
+import { ConfigController } from './controller/ConfigController';
 import { pingHandler } from "./events/ping";
 import { getConfigHandler } from "./events/getConfig";
 import { getMapImgHandler } from "./events/getMapImg";

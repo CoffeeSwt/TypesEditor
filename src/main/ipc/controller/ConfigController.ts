@@ -1,8 +1,7 @@
-import { getDataPath } from "./index"
+import { getDataPath } from "../../utils/index"
 import path from 'node:path'
 import fs from 'node:fs'
-import { accessFileSync } from "./file"
-
+import { accessJsonFileSync } from "../../accessFile/accessJsonFileSync"
 
 export class ConfigController {
     directoryPath: string
@@ -19,7 +18,7 @@ export class ConfigController {
         this.config[key] = value
     }
     readConfig() {
-        const config = accessFileSync(this.directoryPath, this.filePath, this.defaultConfigContent)
+        const config = accessJsonFileSync(this.directoryPath, this.filePath, this.defaultConfigContent)
         if (config)
             this.config = config
         return this.config
