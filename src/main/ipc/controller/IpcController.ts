@@ -1,5 +1,5 @@
 import { IpcMain } from 'electron'
-import { EventsController } from '../EventsController'
+import { EventsController } from './EventsController'
 
 interface IpcEvnet {
     name: string,

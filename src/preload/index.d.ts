@@ -13,6 +13,8 @@ export interface CustomAPIs {
 
   getMapImg: (filePath: string[]) => void
   onSendImg: (callback: (event: Electron.IpcRendererEvent, img: string, filePath: string[]) => void) => Electron.IpcRenderer
+
+  onSendCMD: (callback: (event: Electron.IpcRendererEvent, value: boolean) => void) => Electron.IpcRenderer
 }
 
 declare global {

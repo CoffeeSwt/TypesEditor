@@ -1,8 +1,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { getDataPath } from './index';
+import { app } from 'electron';
 
-const steamCMDPath = `${getDataPath('runtime')}`
+const steamCMDPath = path.join(app.getAppPath(), 'runtime')
 const filePath = path.join(steamCMDPath, 'steamcmd.exe')
 
 export const accessCMDSync = () => {

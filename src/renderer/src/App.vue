@@ -9,6 +9,9 @@ import { api } from '@renderer/utils/ipcApi'
 const configStore = useConfigStore()
 configStore.init()
 api.ping()
+api.onSendCMD((_, val) => {
+  console.log(val)
+})
 
 // themeStore.setTheme('dark')
 // console.log(themeStore.getCurrentTheme())

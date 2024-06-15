@@ -1,26 +1,25 @@
 import { ipcController } from "../events"
 
-const minimizeHandler = () => {
+export const minimizeHandler = () => {
     const mainWindow = ipcController.getMainWindow()
     mainWindow?.minimize()
 }
-ipcController.addOn('minimize', minimizeHandler)
 
-const maximizeHandler = () => {
+
+export const maximizeHandler = () => {
     const mainWindow = ipcController.getMainWindow()
     mainWindow?.maximize()
 }
-ipcController.addOn('maximize', maximizeHandler)
 
-const restoreHandler = () => {
+
+export const restoreHandler = () => {
     const mainWindow = ipcController.getMainWindow()
     mainWindow?.restore()
     // mainWindow?.unmaximize()
 }
-ipcController.addOn('restore', restoreHandler)
 
-const closeHandler = () => {
+
+export const closeHandler = () => {
     const mainWindow = ipcController.getMainWindow()
     mainWindow?.close()
 }
-ipcController.addOn('close', closeHandler)

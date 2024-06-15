@@ -15,6 +15,7 @@ const api = {
 
   getMapImg: (filePath: string) => ipcRenderer.send('getMapImg', filePath),
   onSendImg: (callback: (event: Electron.IpcRendererEvent, img: string, filePath: string) => void) => ipcRenderer.on('sendImg', (_event, value, filePath) => callback(_event, value, filePath)),
+  onSendCMD: (callback: (event: Electron.IpcRendererEvent, value: boolean) => void) => ipcRenderer.on('sendCMD', (_event, value) => callback(_event, value,)),
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to
