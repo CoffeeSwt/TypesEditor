@@ -3,7 +3,7 @@ import path from 'node:path'
 import { getDataPath } from '.'
 
 export const accessImgSync = (filePath: Array<string>) => {
-    const filePathResolve = path.join(...[`${getDataPath()}`, ...filePath]);
+    const filePathResolve = path.join(...[`${getDataPath(`data`)}`, ...filePath]);
     // 判断文件是否存在
     if (!fs.existsSync(filePathResolve)) {
         return

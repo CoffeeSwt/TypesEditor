@@ -10,7 +10,7 @@ export class ConfigController {
     defaultConfigContent: {}
     config: {}
     constructor() {
-        this.directoryPath = `${getDataPath()}config`
+        this.directoryPath = `${getDataPath('data')}config`
         this.filePath = path.join(this.directoryPath, 'config.json');
         this.defaultConfigContent = {}
         this.config = {}

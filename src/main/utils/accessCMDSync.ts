@@ -1,11 +1,16 @@
 import fs from 'node:fs'
+import path from 'node:path'
+import { getDataPath } from './index';
 
-export const accessFileSync = (directoryPath: string, filePath: string, defaultConfigContent: any) => {
+const steamCMDPath = `${getDataPath('runtime')}`
+const filePath = path.join(steamCMDPath, 'steamcmd.exe')
+
+export const accessCMDSync = () => {
     // 判断目录是否存在
-    if (!fs.existsSync(directoryPath)) {
+    if (!fs.existsSync(steamCMDPath)) {
         console.log('Directory does not exist, creating...');
         try {
-            fs.mkdirSync(directoryPath, { recursive: true });
+            fs.mkdirSync(steamCMDPath, { recursive: true });
             console.log('Directory created successfully!');
         } catch (err) {
             console.error('Error creating directory:', err);
@@ -16,13 +21,13 @@ export const accessFileSync = (directoryPath: string, filePath: string, defaultC
     if (!fs.existsSync(filePath)) {
         console.log('File does not exist, creating...');
         try {
-            fs.writeFileSync(filePath, JSON.stringify(defaultConfigContent, null, 2), 'utf-8');
+            return false
         } catch (err) {
-            console.error('Error creating file:', err);
+            console.error('Steamcmd not exists:', err);
+            return false
         }
     } else {
-        const file = fs.readFileSync(filePath, 'utf-8')
-        return JSON.parse(file)
+        return true
     }
 }
 
