@@ -21,7 +21,8 @@ export default defineConfig({
     ['flex-center', 'flex justify-center items-center'],
     ['header-button', 'size-6 no-drag-area cursor-pointer'],
     ['main-conetnt', 'size-full p-2 box-border'],
-    ['blur', "filter-blur backdrop-blur",]
+    ['blur', "filter-blur backdrop-blur"],
+    ['border', "border border-solid border-1px",]
   ],
   theme: {
     colors: {
@@ -46,7 +47,10 @@ export default defineConfig({
 
       'coffee-gray': '#cccccc',
       'coffee-gray-text': '#333333',
-      'coffee-gray-hover': '#999999'
+      'coffee-gray-hover': '#999999',
+
+      'coffee-border-gray': '#404046',
+      'hover-gray': '#27272e',
     }
   },
   presets: [
