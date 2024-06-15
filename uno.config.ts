@@ -21,6 +21,7 @@ export default defineConfig({
     ['flex-center', 'flex justify-center items-center'],
     ['header-button', 'size-6 no-drag-area cursor-pointer'],
     ['main-conetnt', 'size-full p-2 box-border'],
+    ['blur', "filter-blur backdrop-blur",]
   ],
   theme: {
     colors: {
@@ -41,7 +42,11 @@ export default defineConfig({
       'aside-dark': '#1a1a21',
       'aside-light': '#f2f3f5',
 
-      'active-blue': '#4f46e5'
+      'active-blue': '#4f46e5',
+
+      'coffee-gray': '#cccccc',
+      'coffee-gray-text': '#333333',
+      'coffee-gray-hover': '#999999'
     }
   },
   presets: [

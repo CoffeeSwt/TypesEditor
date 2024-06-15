@@ -13,14 +13,27 @@ export const routes: Array<RouteRecordRaw> = [
         path: '/craft',
         component: () => import('@renderer/pages/Craft.vue')
     },
-    {
-        name: '游戏地图',
-        path: '/map',
-        component: () => import('@renderer/pages/Map.vue')
-    },
+    // {
+    //     name: '游戏地图',
+    //     path: '/map',
+    //     component: () => import('@renderer/pages/Map.vue')
+    // },
     {
         name: '设置',
         path: '/setting',
         component: () => import('@renderer/pages/Setting.vue')
+    },
+    {
+        name: '服务器',
+        path: '/server',
+        component: () => import('@renderer/pages/Server.vue'),
+        redirect: '/server/setup',
+        children: [
+            {
+                name: '服务器安装',
+                path: '/server/setup',
+                component: () => import('@renderer/pages/Server/Setup.vue')
+            }
+        ]
     }
 ]

@@ -39,25 +39,31 @@ import { useWindowStore } from '@renderer/store/window';
 
 const windowStore = useWindowStore()
 const router = useRouter()
-const menuList = computed(() => {
-    return router.getRoutes().filter(i => routeFilter(i)).map(route => {
-        return {
-            ...route,
-            icon: getIconByName(route.name as string),
-            active: router.currentRoute.value.name == route.name
-        }
-    })
-})
 
 const routeFilter = (route: RouteRecordNormalized) => {
     const path = route.path
     const filterList = ['/', '/setting']
-    if (filterList.indexOf(path) == -1) {
-        return true
-    } else {
-        return false
-    }
+    //不在router白名单中
+    if (filterList.indexOf(path) != -1) return false
+    //存在父级路由
+    if (path.split('/').length > 2) return false
+    return true
+
 }
+
+const computeActive = (route: RouteRecordNormalized) => {
+    const matchPath = router.currentRoute.value.matched[0].path
+    return route.path == matchPath
+}
+
+const menuList = computed(() => router.getRoutes().filter(i => routeFilter(i)).map(route => {
+    return {
+        ...route,
+        icon: getIconByName(route.name as string),
+        active: computeActive(route)
+    }
+})
+)
 
 </script>
 
