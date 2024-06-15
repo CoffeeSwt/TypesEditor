@@ -2,7 +2,6 @@ import {
     PerspectiveCamera,
     WebGLRenderer,
     Scene,
-    Object3D,
     AxesHelper,
     GridHelper,
     Vector3,
@@ -51,12 +50,12 @@ export class TEngine {
         )
 
         this.camera = this.cameraPersp
-        this.camera.position.set(500, 500, 500) //相机初始位置
-        this.camera.lookAt(new Vector3(0, 0, 0)) //相机观察位置
+        this.camera.position.set(200, 0, 200) //相机初始位置
+        this.camera.lookAt(new Vector3(0, 1, 0)) //相机观察位置
 
         //场景
         this.scene = new Scene()
-        this.scene.background = new Color(0x666666)
+        this.scene.background = new Color(0xffffff)
         this.scene.fog = new Fog(0x666666, 1, 5000)
 
         //坐标轴和网格工具
@@ -110,7 +109,6 @@ export class TEngine {
             const aspect = dom.offsetWidth / dom.offsetHeight
             this.cameraPersp.aspect = aspect
             this.cameraPersp.updateProjectionMatrix()
-
         }
         window.addEventListener('resize', this.onWindowResize)
 

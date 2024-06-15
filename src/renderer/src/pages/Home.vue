@@ -1,7 +1,7 @@
 <template>
     <MainWrapper>
         <div main-conetnt>
-            Home
+            <div size-10 dark:size-20></div>
         </div>
     </MainWrapper>
 </template>
