@@ -16,6 +16,8 @@ export default defineConfig({
     ['top-center', { top: '50%', transform: 'translateY(-50%)' }],
     ['drag-area', { '-webkit-app-region': 'drag', '-webkit-user-select': 'none' }],
     ['no-drag-area', { '-webkit-app-region': 'no-drag' }],
+    ['translate-x-self--50', { transform: 'translateX(-50%)' }],
+    ['translate-y-self--50', { transform: 'translateY(-50%)' }],
   ],
   shortcuts: [
     ['flex-center', 'flex justify-center items-center'],
@@ -49,8 +51,11 @@ export default defineConfig({
       'coffee-gray-text': '#333333',
       'coffee-gray-hover': '#999999',
 
-      'coffee-border-gray': '#404046',
-      'hover-gray': '#27272e',
+      'coffee-border-gray': '#d0d0d6',
+      'dark-coffee-border-gray': '#303036',
+      'hover-gray': '#66666633',
+      'dark-hover-gray': '#27272e',
+
     }
   },
   presets: [
