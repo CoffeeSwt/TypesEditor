@@ -1,6 +1,6 @@
 <template>
     <MainWrapper>
-        <div main-conetnt>
+        <div main-conetnt flex flex-col overflow-auto>
             <header flex gap-4 mb-6 relative ref="menuHeaderRef">
                 <template v-for="menuItem in headerMenu">
                     <div @click="router.push({ name: menuItem.routerName })" text-lg p-1 cursor-pointer duration-150>
@@ -11,7 +11,7 @@
                     duration-150>
                 </div>
             </header>
-            <main>
+            <main flex-grow-1 w-full flex flex-col>
                 <router-view></router-view>
             </main>
         </div>

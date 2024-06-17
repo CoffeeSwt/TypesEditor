@@ -12,6 +12,8 @@ import {
 
 export default defineConfig({
   rules: [
+    [/^m-(\d+)$/, ([, d]) => ({ margin: `${d as unknown as number / 4}rem` })],
+    [/^p-(\d+)$/, match => ({ padding: `${match[1] as unknown as number / 4}rem` })],
     ['left-center', { left: '50%', transform: 'translateX(-50%)' }],
     ['top-center', { top: '50%', transform: 'translateY(-50%)' }],
     ['drag-area', { '-webkit-app-region': 'drag', '-webkit-user-select': 'none' }],
@@ -55,7 +57,6 @@ export default defineConfig({
       'dark-coffee-border-gray': '#303036',
       'hover-gray': '#66666633',
       'dark-hover-gray': '#27272e',
-
     }
   },
   presets: [

@@ -3,7 +3,7 @@
         <Aside></Aside>
         <div h-full flex flex-col flex-grow-1 overflow-hidden>
             <Header flex-shrink-0></Header>
-            <div flex-grow-1 w-full box-border>
+            <div flex-grow-1 w-full box-border overflow-hidden>
                 <slot></slot>
             </div>
         </div>
